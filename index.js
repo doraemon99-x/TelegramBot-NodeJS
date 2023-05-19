@@ -274,6 +274,12 @@ bot.on('message', async (lol) => {
 				break
 			case 'tiktoknowm':
 				if (args.length == 0) return await reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
+				url = `https://api.lolhuman.xyz/api/tiktok?apikey=${apikey}&url=${args[0]}`
+				result = await fetchJson(url)
+				await lol.replyWithVideo({ url: result.result })
+				break
+			case 'tiktoknowm2':
+				if (args.length == 0) return await reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
 				url = `https://api.lolhuman.xyz/api/tiktok2?apikey=${apikey}&url=${args[0]}`
 				result = await fetchJson(url)
 				await lol.replyWithVideo({ url: result.result })
